@@ -1,0 +1,239 @@
+/* Основные стили для панели доступности */
+.accessibility-mode {
+  font-size: 24px; /* Увеличенный шрифт */
+  background-color: black; /* Темный фон */
+  color: white; /* Белый текст */
+}
+.accessibility-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+.accessibility-menu h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    color: #1a2e72;
+    border-bottom: 2px solid #f76c6c;
+    padding-bottom: 0.5rem;
+}
+
+.accessibility-menu select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.accessibility-menu button {
+    background-color: #f76c6c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+.accessibility-menu button:hover {
+    background-color: #e55a5a;
+}
+
+/* Стили для различных цветовых схем */
+body.black-on-white {
+    background-color: white !important;
+    color: black !important;
+}
+
+body.white-on-black {
+    background-color: black !important;
+    color: white !important;
+}
+
+body.white-on-black a {
+    color: #7fbfff !important;
+}
+
+body.yellow-on-blue {
+    background-color: #000080 !important;
+    color: #ffff00 !important;
+}
+
+body.yellow-on-blue a {
+    color: #ffff00 !important;
+    text-decoration: underline !important;
+}
+
+/* Стили для увеличенного текста */
+body.large-text {
+    font-size: 1.25rem;
+}
+
+body.large-text h1, 
+body.large-text h2, 
+body.large-text h3 {
+    font-size: 1.5em !important;
+}
+
+body.very-large-text {
+    font-size: 1.5rem;
+}
+
+body.very-large-text h1, 
+body.very-large-text h2, 
+body.very-large-text h3 {
+    font-size: 1.75em !important;
+}
+
+/* Стили для отключения изображений */
+body.images-off img:not([alt=""]) {
+    display: none !important;
+}
+
+/* Стили для различных шрифтов */
+body.font-arial {
+    font-family: Arial, sans-serif !important;
+}
+
+body.font-times {
+    font-family: 'Times New Roman', serif !important;
+}
+
+body.font-courier {
+    font-family: 'Courier New', monospace !important;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.hero-gradient {
+    background: linear-gradient(135deg, rgba(26,62,114,0.9) 0%, rgba(10,31,61,0.95) 100%);
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.transition-all {
+    transition: all 0.3s ease;
+}
+
+.text-shadow {
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.input-focus:focus {
+    outline: 2px solid #ff6b35;
+    outline-offset: 2px;
+}
+
+#mobileMenu {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+body.menu-open::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 40;
+}
+
+.dropdown-menu-mobile {
+    border-left: 2px solid #f76c6c;
+}
+
+/* Оптимизация изображений для iOS */
+img {
+    max-width: 100%;
+    height: auto;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+}
+
+@supports (-webkit-touch-callout: none) {
+    img {
+        object-fit: contain;
+    }
+}
+
+/* Улучшение отображения на маленьких экранах */
+@media (max-width: 640px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.8rem;
+        line-height: 2.2rem;
+    }
+    
+    .hero-section p {
+        font-size: 1rem;
+        line-height: 1.4rem;
+    }
+    
+    .quick-links {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .news-grid, 
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .feedback-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+/* Улучшение отображения на средних экранах */
+@media (min-width: 641px) and (max-width: 1023px) {
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .quick-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Предотвращение масштабирования на iOS */
+input, textarea, select {
+    font-size: 16px !important;
+}
+
+/* Фикс для Safari с position: sticky */
+@supports (-webkit-overflow-scrolling: touch) {
+    header {
+        position: -webkit-sticky;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}

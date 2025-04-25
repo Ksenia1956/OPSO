@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>index</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Официальный сайт Общественной палаты Саратовской области">
+    <title>Общественная палата Саратовской области</title>
+    <link rel="canonical" href="https://оп64.рф">
+    <!-- Open Graph / социальные мета-теги -->
+    <meta property="og:title" content="Общественная палата Саратовской области">
+    <meta property="og:description" content="Официальный сайт Общественной палаты Саратовской области">
+    <meta property="og:image" content="https://оп64.рф/images/logo_og.jpg">
+    <meta property="og:url" content="https://оп64.рф">
+    <meta property="og:type" content="website">
+    <!-- Подключение CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <!-- Конфигурация Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#374785',
+                        secondary: '#e3effd',
+                        accent: '#f76c6c',
+                        dark: '#1A2E72',
+                        light: '#a8d0e6'
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                        title: ['Roboto Condensed', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+  </head>
+<body class="font-sans bg-gray-50 text-gray-800">
+<!-- Шапка сайта -->
+<header class="bg-white shadow-md sticky top-0 z-40 sticky-header">
+    <div class="max-w-7xl mx-auto px-4">
+        <!-- Верхняя строка с утилитами -->
+        <div class="bg-white">
+            <div class="flex flex-wrap justify-between items-center py-3 border-b">
+                <div class="flex items-center space-x-4">
+                    <button id="accessibilityToggle" class="text-sm font-medium text-primary hover:text-accent transition-all flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 inline mr-1 text-primary">
+                            <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                            <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
+                        </svg>
+                        Версия для слабовидящих
+                    </button>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-sm font-medium text-primary hover:text-accent transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 inline mr-1 text-primary">
+                            <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z" clip-rule="evenodd" />
+                        </svg>
+                        Вход
+                    </a>
+                    <button class="text-sm font-medium text-primary hover:text-accent transition-all">
+                        <i class="fas fa-search mr-1"></i> Поиск
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Меню доступности -->
+        <div id="accessibilityMenu" class="hidden absolute right-4 mt-2 w-72 bg-white rounded-md shadow-lg z-50 p-4 border border-gray-200">
+            <h2 class="text-lg font-bold mb-4 text-primary">Настройки доступности</h2>
+            
+            <div class="mb-3">
+                <label for="fontSize" class="block text-sm font-medium mb-1 text-gray-700">Размер текста:</label>
+                <select id="fontSize" class="w-full p-2 border rounded focus:ring-2 focus:ring-accent">
+                    <option value="16px">Обычный</option>
+                    <option value="20px">Увеличенный</option>
+                    <option value="24px">Большой</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label for="colorScheme" class="block text-sm font-medium mb-1 text-gray-700">Цветовая схема:</label>
+                <select id="colorScheme" class="w-full p-2 border rounded focus:ring-2 focus:ring-accent">
+                    <option value="default">Стандартная</option>
+                    <option value="black-on-white">Черный на белом</option>
+                    <option value="white-on-black">Белый на черном</option>
+                    <option value="yellow-on-blue">Желтый на синем</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label for="fontFamily" class="block text-sm font-medium mb-1 text-gray-700">Шрифт:</label>
+                <select id="fontFamily" class="w-full p-2 border rounded focus:ring-2 focus:ring-accent">
+                    <option value="Arial, sans-serif">Без засечек</option>
+                    <option value="'Times New Roman', serif">С засечками</option>
+                    <option value="'Courier New', monospace">Моноширинный</option>
+                </select>
+            </div>
+            
+            <div class="mb-4">
+                <label class="inline-flex items-center">
+                    <input type="checkbox" id="imagesOff" class="rounded border-gray-300 text-accent focus:ring-accent">
+                    <span class="ml-2 text-sm text-gray-700">Отключить изображения</span>
+                </label>
+            </div>
+            
+            <button id="resetSettings" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded transition-colors">
+                Сбросить настройки
+            </button>
+        </div>
+
+        <!-- Основная навигация -->
+        <div class="flex flex-wrap justify-between items-center py-4">
+            <!-- Логотип -->
+            <div class="flex items-center">
+                <a href="/" class="flex items-center">
+                    <img src="https://оп64.рф/images/logo_new.svg" 
+                         width="150" 
+                         height="125" 
+                         alt="Логотип Общественной палаты Саратовской области" 
+                         loading="lazy"
+                         class="hover:opacity-90 transition-opacity">
+                </a>
+            </div>
+  <!-- Основное меню -->
+            <nav class="hidden md:flex items-center space-x-8 justify-center flex-grow">
+                <div class="dropdown relative">
+                    <button class="font-medium text-primary hover:text-accent transition-all flex items-center">
+                        О палате <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="dropdown-menu absolute hidden bg-white shadow-lg rounded mt-2 py-2 w-48 z-10">
+                        <a href="/about" class="block px-4 py-2 text-gray-800 hover:bg-secondary">Состав палаты</a>
+                        <a href="/commissions" class="block px-4 py-2 text-gray-800 hover:bg-secondary">Комиссии и комитеты</a>
+                        <a href="/history" class="block px-4 py-2 text-gray-800 hover:bg-secondary">История</a>
+                    </div>
+                </div>
+                <div class="dropdown relative">
+                    <button class="font-medium text-primary hover:text-accent transition-all flex items-center">
+                        Деятельность <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="dropdown-menu absolute hidden bg-white shadow-lg rounded mt-2 py-2 w-48 z-10">
+                        <a href="/events" class="block px-4 py-2 text-gray-800 hover:bg-secondary">Мероприятия</a>
+                        <a href="/projects" class="block px-4 py-2 text-gray-800 hover:bg-secondary">Проекты</a>
+                        <a href="/expertise" class="block px-4 py-2 text-gray-800 hover:bg-secondary">Экспертиза</a>
+                        <a href="/grants" class="block px-4 py-2 text-gray-800 hover:bg-secondary">Гранты</a>
+                    </div>
+                </div>
+                <a href="/news" class="font-medium text-primary hover:text-accent transition-all">Новости</a>
+                <a href="/documents" class="font-medium text-primary hover:text-accent transition-all">Документы</a>
+                <a href="/contacts" class="font-medium text-primary hover:text-accent transition-all">Контакты</a>
+            </nav>
+
+            <!-- Кнопка мобильного меню -->
+            <button id="mobileMenuButton" 
+                    class="md:hidden text-primary focus:outline-none ml-auto" 
+                    aria-label="Открыть меню"
+                    aria-expanded="false"
+                    aria-controls="mobileMenu">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Мобильное меню -->
+    <div id="mobileMenu" 
+         class="hidden fixed inset-0 bg-white z-50 overflow-y-auto"
+         aria-hidden="true">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center mb-6">
+                <a href="/" class="flex items-center">
+                    <img src="https://оп64.рф/images/logo_new.svg" 
+                         width="120" 
+                         height="100" 
+                         alt="Логотип">
+                </a>
+                <button id="closeMobileMenu" 
+                        class="text-primary focus:outline-none" 
+                        aria-label="Закрыть меню">
+                    <i class="fas fa-times text-2xl"></i>
+                </button>
+            </div>
+            <nav class="flex flex-col space-y-4" aria-label="Мобильное меню">
+                <div class="dropdown-mobile">
+                    <button class="font-medium text-primary text-lg w-full text-left py-2 flex justify-between items-center"
+                            aria-expanded="false"
+                            aria-controls="mobile-dropdown-about">
+                        О палате <i class="fas fa-chevron-down ml-1 text-xs transition-transform"></i>
+                    </button>
+                    <div id="mobile-dropdown-about" class="hidden pl-4 mt-2">
+                        <a href="/about" class="block py-2 text-gray-800 hover:text-accent">Состав палаты</a>
+                        <a href="/commissions" class="block py-2 text-gray-800 hover:text-accent">Комиссии и комитеты</a>
+                        <a href="/history" class="block py-2 text-gray-800 hover:text-accent">История</a>
+                    </div>
+                </div>
+                <div class="dropdown-mobile">
+                    <button class="font-medium text-primary text-lg w-full text-left py-2 flex justify-between items-center"
+                            aria-expanded="false"
+                            aria-controls="mobile-dropdown-activity">
+                        Деятельность <i class="fas fa-chevron-down ml-1 text-xs transition-transform"></i>
+                    </button>
+                    <div id="mobile-dropdown-activity" class="hidden pl-4 mt-2">
+                        <a href="/events" class="block py-2 text-gray-800 hover:text-accent">Мероприятия</a>
+                        <a href="/projects" class="block py-2 text-gray-800 hover:text-accent">Проекты</a>
+                        <a href="/expertise" class="block py-2 text-gray-800 hover:text-accent">Экспертиза</a>
+                        <a href="/grants" class="block py-2 text-gray-800 hover:text-accent">Гранты</a>
+                    </div>
+                </div>
+                <a href="/news" class="font-medium text-primary text-lg py-2 hover:text-accent">Новости</a>
+                <a href="/documents" class="font-medium text-primary text-lg py-2 hover:text-accent">Документы</a>
+                <a href="/contacts" class="font-medium text-primary text-lg py-2 hover:text-accent">Контакты</a>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<!-- Основное содержимое -->
+<main>
+    <!-- Герой-секция -->
+    <section class="hero-gradient text-white py-12 hero-section">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4 text-shadow">История Общественной палаты Саратовской области</h1>
+                    <p class="text-lg mb-6">Общественная палата Саратовской области впервые была создана в 2008 году в соответствии с законом Саратовской области от 31 октября 2007 года «Об Общественной палате Саратовской области», принятым Саратовской областной Думой.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="/history" class="bg-white hover:bg-gray-100 text-primary font-medium py-2 px-6 rounded transition-all">
+                            Узнать больше
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://wikiway.com/upload/iblock/6a0/htgwz1y65yon7nyozkpyhhvvankoldl0/Saratovskiy-most.jpg" 
+                         style="border-radius: 15px; margin: 10px;" 
+                         alt="Саратовский мост"
+                         loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Быстрые ссылки -->
+    <section class="bg-white py-8 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="sr-only">Быстрые ссылки</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 quick-links">
+                <a href="/reception" class="bg-secondary hover:bg-primary hover:text-white p-4 rounded-lg transition-all flex flex-col items-center text-center">
+                    <div class="bg-primary text-white p-3 rounded-full mb-3">
+                        <i class="fas fa-users text-xl"></i>
+                    </div>
+                    <span class="font-medium">Электронная приёмная</span>
+                </a>
+                <a href="/gosuslugi" class="bg-secondary hover:bg-primary hover:text-white p-4 rounded-lg transition-all flex flex-col items-center text-center">
+                    <div class="bg-primary text-white p-3 rounded-full mb-3">
+                        <i class="fas fa-file-alt text-xl"></i>
+                    </div>
+                    <span class="font-medium">Решаем вместе с госуслугами</span>
+                </a>
+                <a href="/hotline" class="bg-secondary hover:bg-primary hover:text-white p-4 rounded-lg transition-all flex flex-col items-center text-center">
+                    <div class="bg-primary text-white p-3 rounded-full mb-3">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </div>
+                    <span class="font-medium">Горячая линия</span>
+                </a>
+            </div>
+        </div>
+    </section>
+        <!-- Основной контент -->
+        <div class="py-12">
+            <div class="container mx-auto px-4">
+                <!-- Новости -->
+                <section class="mb-16">
+                    <div class="flex justify-between items-center mb-8">
+                        <h2 class="text-2xl font-bold text-primary border-l-4 border-accent pl-3">Новости</h2>
+                        <a href="/news" class="text-primary hover:text-accent font-medium transition-all">
+                            Все новости <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-6 news-grid">
+                        <article class="bg-white rounded-lg overflow-hidden shadow-md card-hover transition-all">
+                            <img src="https://оп64.рф/wp-content/uploads/2025/04/photo_5429337913893711461_y.jpg" 
+                                 alt="Заседание рабочей группы" 
+                                 class="w-full h-48 object-cover"
+                                 loading="lazy"
+                                 width="400"
+                                 height="300">
+                            <div class="p-6">
+                                <time datetime="2025-04-01" class="text-sm text-gray-500">1 апреля 2025</time>
+                                <h3 class="text-xl font-bold mt-2 mb-3 text-primary">Состоялось расширенное заседание Межкомиссионной рабочей группы</h3>
+                                <a href="/news/meeting-group" class="text-accent font-medium hover:underline">Подробнее</a>
+                            </div>
+                        </article>
+                        <article class="bg-white rounded-lg overflow-hidden shadow-md card-hover transition-all">
+                            <img src="https://оп64.рф/wp-content/uploads/2025/03/13-_1_.jpg" 
+                                 alt="Заседание обновленного Общественного совета при минсельхоз" 
+                                 class="w-full h-48 object-cover"
+                                 loading="lazy"
+                                 width="400"
+                                 height="300">
+                            <div class="p-6">
+                                <time datetime="2025-03-31" class="text-sm text-gray-500">31 марта 2025</time>
+                                <h3 class="text-xl font-bold mt-2 mb-3 text-primary">Состоялось заседание обновленного Общественного совета при минсельхоз</h3>
+                                <a href="/news/agriculture-council" class="text-accent font-medium hover:underline">Подробнее</a>
+                            </div>
+                        </article>
+                        <article class="bg-white rounded-lg overflow-hidden shadow-md card-hover transition-all">
+                            <img src="https://оп64.рф/wp-content/uploads/2025/03/photo_5420592973931998741_y.jpg" 
+                                 alt="Массовый субботник" 
+                                 class="w-full h-48 object-cover"
+                                 loading="lazy"
+                                 width="400"
+                                 height="300">
+                            <div class="p-6">
+                                <time datetime="2025-03-31" class="text-sm text-gray-500">31 марта 2025</time>
+                                <h3 class="text-xl font-bold mt-2 mb-3 text-primary">Члены Общественной палаты области приняли участие в первом массовом субботнике</h3>
+                                <a href="/news/cleanup" class="text-accent font-medium hover:underline">Подробнее</a>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+                <!-- Мероприятия -->
+                <section class="mb-16">
+                    <div class="flex justify-between items-center mb-8">
+                        <h2 class="text-2xl font-bold text-primary border-l-4 border-accent pl-3">Ближайшие мероприятия</h2>
+                        <a href="/events" class="text-primary hover:text-accent font-medium transition-all">
+                            Все мероприятия <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6 events-grid">
+                        <article class="bg-white rounded-lg shadow-md overflow-hidden card-hover transition-all">
+                            <div class="p-6 flex">
+                                <div class="bg-primary text-white text-center py-3 px-4 rounded-lg mr-4 min-w-[80px]">
+                                    <div class="text-2xl font-bold">4</div>
+                                    <div class="text-sm uppercase">апреля</div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2 text-primary">Расширенное заседание комиссии по социальной политике</h3>
+                                    <p class="text-gray-600 mb-3">Организация и поддержка социальной занятости инвалидов с ментальными нарушениями.</p>
+                                    <div class="flex items-center text-sm text-gray-500">
+                                        <i class="fas fa-clock mr-2"></i> 15:00
+                                        <i class="fas fa-map-marker-alt ml-4 mr-2"></i> Зал заседаний, ул. Яблочкова, 14
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="bg-white rounded-lg shadow-md overflow-hidden card-hover transition-all">
+                            <div class="p-6 flex">
+                                <div class="bg-primary text-white text-center py-3 px-4 rounded-lg mr-4 min-w-[80px]">
+                                    <div class="text-2xl font-bold">28</div>
+                                    <div class="text-sm uppercase">марта</div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold mb-2 text-primary">Заседание комиссии по экологии и природопользованию</h3>
+                                    <p class="text-gray-600 mb-3">Об обращении со строительными отходами в Саратовской области</p>
+                                    <div class="flex items-center text-sm text-gray-500">
+                                        <i class="fas fa-clock mr-2"></i> 15:00
+                                        <i class="fas fa-map-marker-alt ml-4 mr-2"></i> Зал заседаний, ул. Яблочкова, 14
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+                <!-- Состав палаты -->
+                <section class="mb-16">
+                    <div class="flex justify-between items-center mb-8">
+                        <h2 class="text-2xl font-bold text-primary border-l-4 border-accent pl-3">Состав Общественной палаты</h2>
+                        <a href="/members" class="text-primary hover:text-accent font-medium transition-all">
+                            Подробнее <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="divide-y divide-gray-200">
+                            <div class="p-4 hover:bg-secondary transition-all">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 mr-4">
+                                        <img src="https://оп64.рф/images/stories/10-15.jpg" 
+                                             alt="Борис Леонидович Шинчук" 
+                                             class="w-20 h-20 rounded-full object-cover border-2 border-primary"
+                                             loading="lazy"
+                                             width="80"
+                                             height="80">
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-medium text-primary">Борис Леонидович Шинчук</h3>
+                                        <p class="text-gray-600">Председатель Общественной палаты</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 hover:bg-secondary transition-all">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 mr-4">
+                                        <img src="https://files.oprf.ru/storage/images/members/E5qpVGUx7bNiWd2i.jpg" 
+                                             alt="Людмила Петровна Жуковская" 
+                                             class="w-20 h-20 rounded-full object-cover border-2 border-primary"
+                                             loading="lazy"
+                                             width="80"
+                                             height="80">
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-medium text-primary">Людмила Петровна Жуковская</h3>
+                                        <p class="text-gray-600">Заместитель Председателя Общественной палаты</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 hover:bg-secondary transition-all">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 mr-4">
+                                        <img src="https://оп64.рф/wp-content/uploads/userphoto/14.jpg" 
+                                             alt="Валентина Викторовна Богданова" 
+                                             class="w-20 h-20 rounded-full object-cover border-2 border-primary"
+                                             loading="lazy"
+                                             width="80"
+                                             height="80">
+                                    </div>
+                                    <div>
+                                        <h3 class="text-lg font-medium text-primary">Валентина Викторовна Богданова</h3>
+                                        <p class="text-gray-600">Заместитель Председателя Общественной палаты</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Обратная связь -->
+                <section class="bg-primary text-white rounded-lg overflow-hidden shadow-lg feedback-section">
+                    <div class="grid md:grid-cols-2">
+                        <div class="p-8 md:p-12">
+                            <h2 class="text-2xl font-bold mb-4">Обратная связь</h2>
+                            <p class="mb-6">Если у вас есть вопросы, предложения или жалобы, вы можете обратиться в Общественную палату Саратовской области.</p>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <i class="fas fa-phone-alt mt-1 mr-3 text-accent"></i>
+                                    <div>
+                                        <h3 class="font-bold">Телефон</h3>
+                                        <p>+7 (8452) 26-31-37</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-envelope mt-1 mr-3 text-accent"></i>
+                                    <div>
+                                        <h3 class="font-bold">Электронная почта</h3>
+                                        <p>post@op64.ru</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-map-marker-alt mt-1 mr-3 text-accent"></i>
+                                    <div>
+                                        <h3 class="font-bold">Адрес</h3>
+                                        <p>410012, г. Саратов, ул. Яблочкова д. 14</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white p-8 md:p-12 text-gray-800">
+                            <h3 class="text-xl font-bold mb-4 text-primary">Написать обращение</h3>
+                            <form id="feedbackForm" class="space-y-4">
+                                <div>
+                                    <label for="name" class="block mb-1 font-medium">Ваше имя</label>
+                                    <input type="text" 
+                                           id="name" 
+                                           name="name" 
+                                           required 
+                                           class="w-full px-4 py-2 border rounded-lg input-focus">
+                                </div>
+                                <div>
+                                    <label for="email" class="block mb-1 font-medium">Электронная почта</label>
+                                    <input type="email" 
+                                           id="email" 
+                                           name="email" 
+                                           required 
+                                           class="w-full px-4 py-2 border rounded-lg input-focus">
+                                </div>
+                                <div>
+                                    <label for="message" class="block mb-1 font-medium">Сообщение</label>
+                                    <textarea id="message" 
+                                              name="message" 
+                                              rows="4" 
+                                              required 
+                                              class="w-full px-4 py-2 border rounded-lg input-focus"></textarea>
+                                </div>
+                                <button type="submit" 
+                                        class="bg-accent hover:bg-orange-600 text-white font-medium py-2 px-6 rounded transition-all w-full md:w-auto">
+                                    Отправить
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    <!-- Подвал -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8 footer-grid">
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-accent">Общественная палата</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/about" class="hover:text-accent transition-all">О палате</a></li>
+                        <li><a href="/members" class="hover:text-accent transition-all">Состав</a></li>
+                        <li><a href="/commissions" class="hover:text-accent transition-all">Комиссии</a></li>
+                        <li><a href="/documents" class="hover:text-accent transition-all">Документы</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-accent">Деятельность</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/events" class="hover:text-accent transition-all">Мероприятия</a></li>
+                        <li><a href="/projects" class="hover:text-accent transition-all">Проекты</a></li>
+                        <li><a href="/expertise" class="hover:text-accent transition-all">Экспертиза</a></li>
+                        <li><a href="/grants" class="hover:text-accent transition-all">Гранты</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-accent">Ресурсы</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/news" class="hover:text-accent transition-all">Новости</a></li>
+                        <li><a href="/gallery" class="hover:text-accent transition-all">Фотогалерея</a></li>
+                        <li><a href="/video" class="hover:text-accent transition-all">Видеоархив</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-accent">Контакты</h3>
+                    <address class="space-y-2">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-accent"></i>
+                            <span>410012, г. Саратов, ул. Яблочкова, д. 14</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-2 text-accent"></i>
+                            <span>8 (8452) 26-31-37</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-2 text-accent"></i>
+                            <span>post@op64.ru</span>
+                        </div>
+                    </address>
+                    <!-- Соцсети -->
+                    <div class="mt-4 flex space-x-4">
+                        <a href="https://vk.com/opso64" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="text-white hover:text-accent transition-all"
+                           aria-label="Мы ВКонтакте">
+                            <i class="fab fa-vk text-xl"></i>
+                        </a>
+                        <a href="https://t.me/opso64" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="text-white hover:text-accent transition-all"
+                           aria-label="Наш Telegram">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Нижняя часть футера -->
+            <div class="pt-6 border-t border-gray-700">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-sm text-gray-400 mb-4 md:mb-0 md:mr-auto">
+                        © 2025 Общественная палата Саратовской области. Все права защищены.
+                    </p>
+                    <div class="flex space-x-4 text-sm text-gray-400">
+                        <a href="/privacy" class="hover:text-accent transition-all">Политика конфиденциальности</a>
+                        <a href="/sitemap" class="hover:text-accent transition-all">Карта сайта</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
